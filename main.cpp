@@ -228,7 +228,7 @@ int main(int argc, char *argv[])
 	//int r, c;
 
 	// read image header
-	readImageHeader("img.jpg", N, M, Q, type);
+	readImageHeader("img.pgm", N, M, Q, type);
 
 	// allocate memory for the image array
 	Image image(N, M, Q);
@@ -238,11 +238,11 @@ int main(int argc, char *argv[])
 	Image secImage(image);
 
 	// read image
-	readImage(argv[1], image);
+	readImage("img.pgm", image);
 	
 	//print menu until user quits
 	image.negateImage(image);
-	writeImage("img2.jpg", image);
+	writeImage("img2.pgm", image);
 
 	return 0;
 }
@@ -257,11 +257,15 @@ int readImage(char fname[], Image& image)
 
 	ifp.open(fname, ios::in | ios::binary);
 
+	cout << "works\n";
+
 	if (!ifp) 
 	{
 		cout << "Can't read image: " << fname << endl;
 		exit(1);
 	}
+
+	cout << "works\n";
 
  	//read header
 
@@ -323,11 +327,15 @@ int readImageHeader(char fname[], int& N, int& M, int& Q, bool& type)
 
 	ifp.open(fname, ios::in | ios::binary);
 
+	cout << "works\n";
+
 	if (!ifp) 
 	{
 		cout << "Can't read image: " << fname << endl;
 		exit(1);
 	}
+
+	cout << "works\n";
 
  // read header
 
